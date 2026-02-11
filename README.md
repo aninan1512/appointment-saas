@@ -1,59 +1,55 @@
-# Multi-Tenant Appointment SaaS
-
+# Multi-Tenant Appointment SaaS  
 ### Production-Style MERN Application
 
-A production-style **multi-tenant appointment scheduling SaaS** built with the MERN stack.
+A production-style **multi-tenant appointment scheduling SaaS** built with the MERN stack.  
 This project demonstrates secure authentication, tenant-scoped data, and a modern React dashboard designed to reflect real-world SaaS architecture.
 
 ---
 
-## 🚀 Live Project Goals
+## 🚀 Project Overview
 
-This project was built to demonstrate:
+This project demonstrates:
 
-* Real-world SaaS architecture
-* Secure authentication patterns
-* Multi-tenant data isolation
-* RESTful API design
-* Full-stack MERN development
-* Production-ready folder structure
+- Real-world SaaS architecture
+- Secure authentication patterns
+- Multi-tenant data isolation
+- RESTful API design
+- Full-stack MERN development
+- Production-ready folder structure
 
 ---
 
 ## 🏷️ Tech Stack
 
 ### Frontend
-
-* React (Vite)
-* Axios
-* Tailwind CSS
+- React (Vite)
+- Axios
+- Tailwind CSS
 
 ### Backend
-
-* Node.js
-* Express.js
-* MongoDB Atlas
-* Mongoose
-* Zod validation
-* bcrypt
-* JWT Authentication
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- Zod validation
+- bcrypt
+- JWT Authentication
 
 ---
 
 ## ✨ Features
 
-* Multi-tenant onboarding (Tenant + Owner created on registration)
-* Email & password authentication
-* Access Token + Refresh Token system
-* Tenant-scoped services and appointments
-* Appointment conflict detection
-* Appointment status workflow:
-
-  * BOOKED
-  * CANCELLED
-  * COMPLETED
-* Protected routes
-* Modern responsive UI
+- Multi-tenant onboarding (Tenant + Owner created on registration)
+- Email & password authentication
+- Access Token + Refresh Token system
+- Tenant-scoped services and appointments
+- Appointment conflict detection
+- Appointment status workflow:
+  - BOOKED
+  - CANCELLED
+  - COMPLETED
+- Protected routes
+- Responsive UI
 
 ---
 
@@ -62,7 +58,6 @@ This project was built to demonstrate:
 Client → Express API → Authentication Middleware → Controllers → MongoDB
 
 Flow:
-
 1. User registers → Tenant created
 2. User logs in → JWT issued
 3. Protected routes validate tenantId
@@ -77,19 +72,7 @@ Flow:
 appointment-saas/
 │
 ├── backend/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── config/
-│   └── server.js
-│
 ├── frontend/
-│   ├── src/
-│   ├── components/
-│   ├── pages/
-│   └── api/
-│
 ├── screenshots/
 ├── README.md
 └── .gitignore
@@ -101,39 +84,39 @@ appointment-saas/
 
 ### Authentication
 
-| Method | Endpoint           | Description           |
-| ------ | ------------------ | --------------------- |
-| POST   | /api/auth/register | Create tenant + owner |
-| POST   | /api/auth/login    | Returns access token  |
-| POST   | /api/auth/refresh  | Returns new token     |
-| POST   | /api/auth/logout   | Clears session        |
+| Method | Endpoint | Description |
+|--------|--------|--------|
+| POST | /api/auth/register | Create tenant + owner |
+| POST | /api/auth/login | Returns access token |
+| POST | /api/auth/refresh | Returns new token |
+| POST | /api/auth/logout | Clears session |
 
 ---
 
 ### User
 
-| Method | Endpoint      |
-| ------ | ------------- |
-| GET    | /api/users/me |
+| Method | Endpoint |
+|--------|--------|
+| GET | /api/users/me |
 
 ---
 
 ### Services
 
-| Method | Endpoint      |
-| ------ | ------------- |
-| GET    | /api/services |
-| POST   | /api/services |
+| Method | Endpoint |
+|--------|--------|
+| GET | /api/services |
+| POST | /api/services |
 
 ---
 
 ### Appointments
 
-| Method | Endpoint                     |
-| ------ | ---------------------------- |
-| GET    | /api/appointments            |
-| POST   | /api/appointments            |
-| PATCH  | /api/appointments/:id/status |
+| Method | Endpoint |
+|--------|--------|
+| GET | /api/appointments |
+| POST | /api/appointments |
+| PATCH | /api/appointments/:id/status |
 
 Example request:
 
@@ -145,12 +128,12 @@ Example request:
 
 ## 🔒 Security Practices
 
-* Password hashing using bcrypt
-* JWT authentication
-* Refresh tokens in httpOnly cookies
-* Tenant-level data isolation
-* Environment variables for secrets
-* Input validation using Zod
+- Password hashing using bcrypt
+- JWT authentication
+- Refresh tokens stored in httpOnly cookies
+- Tenant-level data isolation
+- Environment variables for secrets
+- Input validation using Zod
 
 ---
 
@@ -187,7 +170,6 @@ npm run dev
 ```
 
 Backend runs on:
-
 ```
 http://localhost:5000
 ```
@@ -203,7 +185,6 @@ npm run dev
 ```
 
 Frontend runs on:
-
 ```
 http://localhost:5173
 ```
@@ -212,13 +193,13 @@ http://localhost:5173
 
 ## 📸 Screenshots
 
-Create a folder:
+Make sure your folder structure is:
 
 ```
 appointment-saas/screenshots/
 ```
 
-Add images:
+Images should be named:
 
 ```
 login.png
@@ -227,70 +208,70 @@ services.png
 appointments.png
 ```
 
-Reference:
-
-```markdown
+### Login
 ![Login](screenshots/login.png)
+
+### Dashboard
 ![Dashboard](screenshots/dashboard.png)
+
+### Services
 ![Services](screenshots/services.png)
+
+### Appointments
 ![Appointments](screenshots/appointments.png)
-```
 
 ---
 
 ## 🗺️ Roadmap
 
-* Role-based access control
-* Staff accounts
-* Calendar integration
-* Email notifications
-* Pagination & filtering
-* Stripe payments (future SaaS feature)
-* Deployment to AWS or Render
+- Staff accounts and roles
+- Calendar integration
+- Email notifications
+- Pagination and search
+- Stripe payments
+- Deployment to AWS or Render
 
 ---
 
-## 📦 Deployment (Recommended for Portfolio)
+## 📦 Deployment (Recommended)
 
 Backend:
-
-* Render
-* Railway
-* AWS EC2
+- Render
+- Railway
+- AWS EC2
 
 Frontend:
-
-* Vercel
-* Netlify
+- Vercel
+- Netlify
 
 Database:
-
-* MongoDB Atlas
+- MongoDB Atlas
 
 ---
 
 ## 🎯 Why This Project Matters
 
-This project demonstrates skills relevant to real production environments:
+This project demonstrates real-world skills:
 
-* Backend architecture
-* Secure authentication
-* SaaS multi-tenancy
-* REST API design
-* React dashboard design
-* Clean folder structure
-* Professional documentation
+- Backend architecture
+- Secure authentication
+- SaaS multi-tenancy
+- REST API design
+- React dashboard design
+- Clean folder structure
+- Professional documentation
 
 ---
 
 ## 👨‍💻 Author
 
-Aaron Ninan
-GitHub: https://github.com/aninan1512
-LinkedIn: https://www.linkedin.com/in/aaron-ninan-798938287
+Aaron Ninan  
+GitHub: https://github.com/aninan1512  
+LinkedIn: https://www.linkedin.com/in/aaron-ninan-798938287  
 
 ---
 
 ## ⭐ If you found this project useful
 
 Consider giving it a star on GitHub.
+
