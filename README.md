@@ -2,7 +2,7 @@
 ### Production-Style MERN Application
 
 A production-style **multi-tenant appointment scheduling SaaS** built with the MERN stack.  
-This project demonstrates secure authentication, tenant-scoped data, and a modern React dashboard designed to reflect real-world SaaS architecture.
+This project demonstrates secure authentication, tenant-scoped data, RESTful API design, and a modern React dashboard designed to reflect real-world SaaS architecture.
 
 ---
 
@@ -10,69 +10,102 @@ This project demonstrates secure authentication, tenant-scoped data, and a moder
 
 This project demonstrates:
 
-- Real-world SaaS architecture
-- Secure authentication patterns
-- Multi-tenant data isolation
-- RESTful API design
-- Full-stack MERN development
-- Production-ready folder structure
+- Real-world SaaS architecture  
+- Secure authentication patterns  
+- Multi-tenant data isolation  
+- RESTful API design  
+- Full-stack MERN development  
+- Production-ready folder structure  
+- Cloud deployment practices  
+
+---
+
+## 🌐 Live Demo
+
+**Frontend**  
+https://appointment-saas-teal.vercel.app  
+
+**Backend API**  
+https://appointment-saas.onrender.com  
+
+**Health Check**  
+https://appointment-saas.onrender.com/health  
 
 ---
 
 ## 🏷️ Tech Stack
 
 ### Frontend
-- React (Vite)
-- Axios
-- Tailwind CSS
+- React (Vite)  
+- Axios  
+- Tailwind CSS  
+- React Router  
 
 ### Backend
-- Node.js
-- Express.js
-- MongoDB Atlas
-- Mongoose
-- Zod validation
-- bcrypt
-- JWT Authentication
+- Node.js  
+- Express.js  
+- MongoDB Atlas  
+- Mongoose  
+- Zod validation  
+- bcrypt  
+- JWT Authentication  
+
+### Deployment
+- Vercel (Frontend)  
+- Render (Backend)  
+- MongoDB Atlas (Database)  
 
 ---
 
 ## ✨ Features
 
-- Multi-tenant onboarding (Tenant + Owner created on registration)
-- Email & password authentication
-- Access Token + Refresh Token system
-- Tenant-scoped services and appointments
-- Appointment conflict detection
+- Multi-tenant onboarding (Tenant + Owner created on registration)  
+- Email & password authentication  
+- Access Token + Refresh Token system  
+- Tenant-scoped services and appointments  
+- Appointment conflict detection  
 - Appointment status workflow:
-  - BOOKED
-  - CANCELLED
-  - COMPLETED
-- Protected routes
-- Responsive UI
+  - BOOKED  
+  - CANCELLED  
+  - COMPLETED  
+- Protected routes  
+- Responsive UI  
+- Cloud-hosted full-stack deployment  
 
 ---
 
 ## 🧠 Architecture Overview
 
-Client → Express API → Authentication Middleware → Controllers → MongoDB
+Client → Express API → Authentication Middleware → Controllers → MongoDB  
 
-Flow:
-1. User registers → Tenant created
-2. User logs in → JWT issued
-3. Protected routes validate tenantId
-4. All queries filtered by tenantId
-5. Refresh token maintains session securely
+**Flow:**
+1. User registers → Tenant created  
+2. User logs in → JWT issued  
+3. Protected routes validate tenantId  
+4. All queries filtered by tenantId  
+5. Refresh token maintains session securely  
 
 ---
 
 ## 📁 Project Structure
 
-```
+```bash
 appointment-saas/
 │
 ├── backend/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── config/
+│   ├── server.js
+│   └── package.json
+│
 ├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
 ├── screenshots/
 ├── README.md
 └── .gitignore
@@ -128,39 +161,41 @@ Example request:
 
 ## 🔒 Security Practices
 
-- Password hashing using bcrypt
-- JWT authentication
-- Refresh tokens stored in httpOnly cookies
-- Tenant-level data isolation
-- Environment variables for secrets
-- Input validation using Zod
+- Password hashing using bcrypt  
+- JWT authentication  
+- Refresh tokens stored in httpOnly cookies  
+- Tenant-level data isolation  
+- Environment variables for secrets  
+- Input validation using Zod  
+- Secure API configuration and CORS handling  
 
 ---
 
 ## 🚀 Local Setup
 
-### Clone Repository
+### 1. Clone Repository
 
 ```bash
-git clone <YOUR_REPO_URL>
+git clone https://github.com/aninan1512/appointment-saas.git
 cd appointment-saas
 ```
 
 ---
 
-### Backend Setup
+### 2. Backend Setup
 
 ```bash
 cd backend
 npm install
 ```
 
-Create `.env` file:
+Create a `.env` file inside **backend/**:
 
 ```
 MONGODB_URI=your_connection_string
 JWT_SECRET=your_secret
 JWT_REFRESH_SECRET=your_refresh_secret
+CLIENT_ORIGIN=http://localhost:5173
 ```
 
 Run backend:
@@ -169,14 +204,15 @@ Run backend:
 npm run dev
 ```
 
-Backend runs on:
+Backend runs at:
+
 ```
 http://localhost:5000
 ```
 
 ---
 
-### Frontend Setup
+### 3. Frontend Setup
 
 ```bash
 cd ../frontend
@@ -184,7 +220,8 @@ npm install
 npm run dev
 ```
 
-Frontend runs on:
+Frontend runs at:
+
 ```
 http://localhost:5173
 ```
@@ -222,30 +259,33 @@ appointments.png
 
 ---
 
+---
+
 ## 🗺️ Roadmap
 
-- Staff accounts and roles
-- Calendar integration
-- Email notifications
-- Pagination and search
-- Stripe payments
-- Deployment to AWS or Render
+- Staff accounts and roles  
+- Calendar integration  
+- Email notifications  
+- Pagination and search  
+- Stripe payments  
+- Docker support  
+- Deployment to AWS  
 
 ---
 
 ## 📦 Deployment (Recommended)
 
-Backend:
-- Render
-- Railway
-- AWS EC2
+**Backend**
+- Render  
+- Railway  
+- AWS EC2  
 
-Frontend:
-- Vercel
-- Netlify
+**Frontend**
+- Vercel  
+- Netlify  
 
-Database:
-- MongoDB Atlas
+**Database**
+- MongoDB Atlas  
 
 ---
 
@@ -253,25 +293,29 @@ Database:
 
 This project demonstrates real-world skills:
 
-- Backend architecture
-- Secure authentication
-- SaaS multi-tenancy
-- REST API design
-- React dashboard design
-- Clean folder structure
-- Professional documentation
+- Backend architecture  
+- Secure authentication  
+- SaaS multi-tenancy  
+- REST API design  
+- React dashboard design  
+- Clean folder structure  
+- Professional documentation  
+- Cloud deployment  
 
 ---
 
 ## 👨‍💻 Author
 
-Aaron Ninan  
-GitHub: https://github.com/aninan1512  
-LinkedIn: https://www.linkedin.com/in/aaron-ninan-798938287  
+**Aaron Ninan**  
+
+GitHub:  
+https://github.com/aninan1512  
+
+LinkedIn:  
+https://www.linkedin.com/in/aaron-ninan-798938287  
 
 ---
 
 ## ⭐ If you found this project useful
 
 Consider giving it a star on GitHub.
-
