@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://appointment-saas.onrender.com",
+  baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,
 });
 
@@ -16,10 +16,10 @@ api.interceptors.response.use(
   async (error) => {
     const original = error.config;
 
-    // If there's no response (network error), just reject
+    // network error
     if (!error.response) return Promise.reject(error);
 
-    // ✅ Don't try to refresh if the failing call IS the refresh endpoint
+    // don't refresh if refresh itself fails
     const isRefreshCall = original?.url?.includes("/api/auth/refresh");
 
     if (error.response.status === 401 && !original._retry && !isRefreshCall) {

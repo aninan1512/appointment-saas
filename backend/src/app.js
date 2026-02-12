@@ -9,6 +9,7 @@ const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 const servicesRoutes = require("./routes/services.routes");
 const appointmentsRoutes = require("./routes/appointments.routes");
+const dashboardRoutes = require("./routes/dashboard.routes"); // ✅ NEW
 
 // Error middleware
 const { notFound, errorHandler } = require("./middleware/error");
@@ -32,7 +33,7 @@ function createApp() {
     })
   );
 
-  // Root endpoint (for Render primary URL)
+  // Root endpoint
   app.get("/", (req, res) => {
     res.json({
       ok: true,
@@ -50,8 +51,9 @@ function createApp() {
   app.use("/api/users", userRoutes);
   app.use("/api/services", servicesRoutes);
   app.use("/api/appointments", appointmentsRoutes);
+  app.use("/api/dashboard", dashboardRoutes); // ✅ NEW
 
-  // 404 + error handlers (must stay last)
+  // 404 + error handlers
   app.use(notFound);
   app.use(errorHandler);
 
