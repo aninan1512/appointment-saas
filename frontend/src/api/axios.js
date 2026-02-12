@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:5000",
-  withCredentials: true
+  baseURL: "https://appointment-saas.onrender.com",
+  withCredentials: true,
 });
 
 api.interceptors.request.use((config) => {
@@ -16,19 +16,29 @@ api.interceptors.response.use(
   async (error) => {
     const original = error.config;
 
-    if (error.response?.status === 401 && !original._retry) {
+    // If there's no response (network error), just reject
+    if (!error.response) return Promise.reject(error);
+
+    // ✅ Don't try to refresh if the failing call IS the refresh endpoint
+    const isRefreshCall = original?.url?.includes("/api/auth/refresh");
+
+    if (error.response.status === 401 && !original._retry && !isRefreshCall) {
       original._retry = true;
+
       try {
         const refreshRes = await api.post("/api/auth/refresh");
-        localStorage.setItem("accessToken", refreshRes.data.accessToken);
-        original.headers.Authorization = `Bearer ${refreshRes.data.accessToken}`;
+        const newToken = refreshRes.data.accessToken;
+
+        localStorage.setItem("accessToken", newToken);
+        original.headers.Authorization = `Bearer ${newToken}`;
+
         return api(original);
       } catch (e) {
         localStorage.removeItem("accessToken");
+        return Promise.reject(e);
       }
     }
 
     return Promise.reject(error);
   }
 );
-
