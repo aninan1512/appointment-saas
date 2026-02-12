@@ -32,6 +32,14 @@ function createApp() {
     })
   );
 
+  // Root endpoint (for Render primary URL)
+  app.get("/", (req, res) => {
+    res.json({
+      ok: true,
+      message: "Appointment SaaS API is running"
+    });
+  });
+
   // Health check
   app.get("/health", (req, res) => {
     res.json({ ok: true, message: "API is healthy" });
@@ -43,7 +51,7 @@ function createApp() {
   app.use("/api/services", servicesRoutes);
   app.use("/api/appointments", appointmentsRoutes);
 
-  // 404 + error handlers
+  // 404 + error handlers (must stay last)
   app.use(notFound);
   app.use(errorHandler);
 
